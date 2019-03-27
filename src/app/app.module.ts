@@ -8,10 +8,20 @@ import { AppComponent } from './app.component';
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { AppState } from './store/app.state';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LeftNavComponent } from './components/left-nav/left-nav.component';
+import { RightNavComponent } from './components/right-nav/right-nav.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    LeftNavComponent,
+    RightNavComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
