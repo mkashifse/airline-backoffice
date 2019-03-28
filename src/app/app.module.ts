@@ -6,13 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { AppState } from './store/app.state';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LeftNavComponent } from './components/left-nav/left-nav.component';
-import { RightNavComponent } from './components/right-nav/right-nav.component';
 import { HeaderComponent } from './components/header/header.component';
+
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +21,6 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     DashboardComponent,
     LeftNavComponent,
-    RightNavComponent,
     HeaderComponent
   ],
   imports: [
@@ -29,6 +29,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatToolbarModule,
     NgxsModule.forRoot([
       AppState
     ])
