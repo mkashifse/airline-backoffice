@@ -1,3 +1,33 @@
-<p>
-  dashboard works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Form
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="this.form" class="flex">
+      <div class="flex">
+        <mat-form-field>
+          <input matInput placeholder="Office Id" formControlName="officeId">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="User Id" formControlName="userId">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Service Endpoint" formControlName="serviceEndpoint">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Pseudo City Code" formControlName="pseudoCityCoe">
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-footer class="pad">
+      <button mat-button (click)="submit()">Submit</button>
+  </mat-card-footer>
+</mat-card>

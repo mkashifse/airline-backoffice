@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex > * {
+  margin: 1rem;
+}
+
+.pad,
+.mar {
+  padding: 1rem;
+}

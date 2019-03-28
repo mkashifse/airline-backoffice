@@ -12,7 +12,40 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LeftNavComponent } from './components/left-nav/left-nav.component';
 import { HeaderComponent } from './components/header/header.component';
 
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+} from '@angular/material';
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 
 @NgModule({
@@ -26,15 +59,51 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/m
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
+
+    // angular material
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
     MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule,
+    MatGridListModule,
+
     NgxsModule.forRoot([
       AppState
     ])
   ],
-  providers: [],
+  providers: [
+    FormBuilder,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
