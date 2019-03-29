@@ -110,8 +110,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormBuilder,
     AbstractService,
     AppService,
-    HttpClient
-
+    HttpClient,
   ],
   bootstrap: [AppComponent]
 })

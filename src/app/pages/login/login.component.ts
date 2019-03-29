@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.store.dispatch(new AppActions.Login(this.form.value));
-    this.store.dispatch(new Navigate(['/dashboard']));
+    // this.store.dispatch(new Navigate(['/dashboard']));
   }
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -7,12 +7,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AbstractService {
 
-    url = 'http://18.218.245.225:3000/';
+    // url = 'http://18.218.245.225:3000/';
+    url = 'http://upwork.masoodrehman.com:3000/';
     options: any = {};
 
     constructor(
         private http: HttpClient,
     ) {
+
+        // this.options = {
+        //     headers: new HttpHeaders({
+        //         'Content-Type': 'application/json',
+        //         'Access-Control-Allow-Origin': '*',
+        //     })
+        // };
 
     }
 

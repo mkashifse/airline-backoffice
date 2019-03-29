@@ -1,8 +1,9 @@
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, Selector, Store } from '@ngxs/store';
 import { AppStateModel } from './app.state.model';
 import { AppActions } from './app.actions';
 import { AppService } from './app.service';
 import { tap } from 'rxjs/operators';
+import { Navigate } from '@ngxs/router-plugin';
 
 
 @State<AppStateModel>({
@@ -17,12 +18,32 @@ export class AppState {
 
     }
 
+    @Selector()
+    static isAuth(state: AppStateModel): boolean {
+        const token = window.localStorage.getItem('token');
+        return token ? true : false;
+    }
+
+    @Action(AppActions.LoadLocalToken)
+    loadLocalToken(ctx: StateContext<AppStateModel>) {
+        const token = window.localStorage.getItem('token');
+        ctx.patchState({
+            token,
+        });
+    }
+
     @Action(AppActions.Login)
     login(ctx: StateContext<AppStateModel>, action: AppActions.Login) {
 
         return this.service.login(action.payload).pipe(
-            tap((resp: any) => {
-                debugger;
+            tap(({ status, token }: any) => {
+                ctx.patchState({
+                    token,
+                });
+                window.localStorage.setItem('token', token);
+                if (token) {
+                    ctx.dispatch(new Navigate(['/dashboard']));
+                }
             })
         );
 
