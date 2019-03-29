@@ -14,5 +14,8 @@ export namespace AppActions {
         constructor(public payload: any) { }
 
     }
+    export class GetAmeduesSettings {
+        static readonly type = '[App] Get amedues settings';
+    }
 
 }

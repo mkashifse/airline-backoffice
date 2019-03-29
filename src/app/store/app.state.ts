@@ -1,4 +1,4 @@
-import { State, Action, StateContext, Selector, Store } from '@ngxs/store';
+import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { AppStateModel } from './app.state.model';
 import { AppActions } from './app.actions';
 import { AppService } from './app.service';
@@ -62,6 +62,17 @@ export class AppState {
             tap(() => {
                 this.snackBar.open('Setting added Successfully', 'Success', {
                     duration: 2000,
+                });
+            })
+        );
+    }
+
+    @Action(AppActions.GetAmeduesSettings)
+    getSetting(ctx: StateContext<AppStateModel>, action: AppActions.GetAmeduesSettings) {
+        return this.service.getAmadeusSettings().pipe(
+            tap(({ data }) => {
+                ctx.patchState({
+                    amadeusSetting: data
                 });
             })
         );

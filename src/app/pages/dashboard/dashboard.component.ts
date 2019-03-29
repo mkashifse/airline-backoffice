@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(new AppActions.GetAmeduesSettings());
   }
 
   submit() {
