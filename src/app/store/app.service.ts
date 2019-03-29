@@ -28,7 +28,7 @@ export class AbstractService {
         return this.http.get(this.url + url, this.options);
     }
 
-    delete(url: string, ): Observable<any> {
+    delete(url: string): Observable<any> {
         return this.http.delete(this.url + url, this.options);
     }
 
