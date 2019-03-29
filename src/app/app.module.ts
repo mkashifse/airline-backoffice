@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -102,7 +103,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
     NgxsModule.forRoot([
       AppState
-    ])
+    ]),
+    NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
     FormBuilder,

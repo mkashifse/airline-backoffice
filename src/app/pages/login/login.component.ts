@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { AppActions } from 'src/app/store/app.actions';
+import { Navigate } from '@ngxs/router-plugin';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.store.dispatch(new AppActions.Login(this.form.value));
+    this.store.dispatch(new Navigate(['/dashboard']));
   }
 
 }
