@@ -1,0 +1,12 @@
+ul {
+  min-width: 200px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  li,
+  li:hover {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+  li:hover {
+    background: rgb(179, 189, 245);
+  }
+}
