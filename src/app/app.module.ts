@@ -46,6 +46,8 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { AppService, AbstractService } from './store/app.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     // angular material
     MatAutocompleteModule,
@@ -103,6 +106,10 @@ import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
   ],
   providers: [
     FormBuilder,
+    AbstractService,
+    AppService,
+    HttpClient
+
   ],
   bootstrap: [AppComponent]
 })

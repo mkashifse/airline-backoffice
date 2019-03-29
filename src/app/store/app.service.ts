@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AbstractService {
 
-    url = 'http://{{host-dev}}';
+    url = 'http://18.218.245.225:3000/';
     options: any = {};
 
     constructor(
@@ -46,7 +46,7 @@ export class AppService extends AbstractService {
     }
 
     login(values: any): Observable<any> {
-        return this.post(`http://{{host-dev}}/admin/amadeus/settings`, values);
+        return this.post(`admin/login`, values);
     }
 
     postAmadeusSettings(values: any): Observable<any> {
