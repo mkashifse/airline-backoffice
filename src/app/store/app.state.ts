@@ -24,6 +24,12 @@ export class AppState {
         return token ? true : false;
     }
 
+    @Selector()
+    static token(state: AppStateModel): string {
+        const token = window.localStorage.getItem('token');
+        return token;
+    }
+
     @Action(AppActions.LoadLocalToken)
     loadLocalToken(ctx: StateContext<AppStateModel>) {
         const token = window.localStorage.getItem('token');
@@ -34,7 +40,6 @@ export class AppState {
 
     @Action(AppActions.Login)
     login(ctx: StateContext<AppStateModel>, action: AppActions.Login) {
-
         return this.service.login(action.payload).pipe(
             tap(({ status, token }: any) => {
                 ctx.patchState({
@@ -46,7 +51,16 @@ export class AppState {
                 }
             })
         );
+    }
 
+    @Action(AppActions.PostAmeduesSettings)
+    addSetting(ctx: StateContext<AppStateModel>, action: AppActions.PostAmeduesSettings) {
+        const {payload} = action;
+        return this.service.postAmadeusSettings(payload).pipe(
+            tap(({ status, token }: any) => {
+                debugger;
+            })
+        );
     }
 
 }

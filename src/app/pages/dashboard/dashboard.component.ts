@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AppService } from 'src/app/store/app.service';
+import { AppActions } from 'src/app/store/app.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: AppService,
+    private store: Store,
   ) {
 
     this.form = this.fb.group({
@@ -30,13 +32,7 @@ export class DashboardComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
-    this.service.login({
-      'email': 'admin@domain.com',
-      'password': 'admin'
-    }).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.store.dispatch(new AppActions.PostAmeduesSettings(this.form.value));
   }
 
 }

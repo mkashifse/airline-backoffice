@@ -48,7 +48,8 @@ import {
 } from '@angular/material';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { AppService, AbstractService } from './store/app.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenHttpInterceptor } from './TokenHttpInterceptor';
 
 
 @NgModule({
@@ -107,6 +108,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenHttpInterceptor,
+      multi: true
+    },
     FormBuilder,
     AbstractService,
     AppService,
