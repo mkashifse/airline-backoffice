@@ -4,6 +4,7 @@ import { AppActions } from './app.actions';
 import { AppService } from './app.service';
 import { tap } from 'rxjs/operators';
 import { Navigate } from '@ngxs/router-plugin';
+import { MatSnackBar } from '@angular/material';
 
 
 @State<AppStateModel>({
@@ -14,6 +15,7 @@ export class AppState {
 
     constructor(
         private service: AppService,
+        private snackBar: MatSnackBar
     ) {
 
     }
@@ -41,7 +43,7 @@ export class AppState {
     @Action(AppActions.Login)
     login(ctx: StateContext<AppStateModel>, action: AppActions.Login) {
         return this.service.login(action.payload).pipe(
-            tap(({ status, token }: any) => {
+            tap(({ token }: any) => {
                 ctx.patchState({
                     token,
                 });
@@ -55,10 +57,12 @@ export class AppState {
 
     @Action(AppActions.PostAmeduesSettings)
     addSetting(ctx: StateContext<AppStateModel>, action: AppActions.PostAmeduesSettings) {
-        const {payload} = action;
+        const { payload } = action;
         return this.service.postAmadeusSettings(payload).pipe(
-            tap(({ status, token }: any) => {
-                debugger;
+            tap(() => {
+                this.snackBar.open('Setting added Successfully', 'Success', {
+                    duration: 2000,
+                });
             })
         );
     }

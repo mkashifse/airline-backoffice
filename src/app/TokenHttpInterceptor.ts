@@ -25,7 +25,7 @@ export class TokenHttpInterceptor implements HttpInterceptor {
             for (const key of request.headers.keys()) {
                 headerSettings[key] = request.headers.getAll(key);
             }
-            headerSettings['x-auth-token'] = token;
+            headerSettings['x-auth'] = token;
             headerSettings['Content-Type'] = 'application/json';
             const newHeader = new HttpHeaders(headerSettings);
             changedRequest = request.clone({
