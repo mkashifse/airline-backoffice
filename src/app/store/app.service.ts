@@ -53,6 +53,10 @@ export class AppService extends AbstractService {
         return this.post(`admin/amadeus/settings`, values);
     }
 
+    editAmadeusSettings(values: any): Observable<any> {
+        return this.put(`admin/amadeus/settings`, values);
+    }
+
     getAmadeusSettings(): Observable<any> {
         return this.get(`admin/amadeus/settings`);
     }

@@ -1,0 +1,26 @@
+.example-container {
+    height: 100vh;
+  }
+  
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex > * {
+    margin: 1rem;
+  }
+  
+  .pad,
+  .mar {
+    padding: 1rem;
+  }
+  
+  mat-card{
+    width: fit-content;
+    margin: auto;
+  }
+  
+  mat-form-field{
+    display: block;
+  }

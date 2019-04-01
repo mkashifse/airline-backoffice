@@ -1,0 +1,32 @@
+<mat-card style="margin-top:2rem; min-width: 300px">
+  <mat-card-header>
+    <mat-card-title>
+      Form
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container flex">
+      <div>Office Id</div>
+      <div>{{($amadues | async)?.officeId}}</div>
+    </div>
+    <div class="flex">
+      <div>User Id</div>
+      <div>{{($amadues | async)?.userId}}</div>
+    </div>
+    <div class="flex">
+      <div>Password</div>
+      <div>{{($amadues | async)?.password}}</div>
+    </div>
+    <div class="flex">
+      <div>Service Endpoint</div>
+      <div>{{($amadues | async)?.serviceEndPoint}}</div>
+    </div>
+    <div class="flex">
+      <div>Pseudo City Code</div>
+      <div>{{($amadues | async)?.pseudoCityCode}}</div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="pad">
+    <button mat-button [routerLink]="['/dashboard/amadeus-settings-edit']">Edit</button>
+  </mat-card-footer>
+</mat-card>

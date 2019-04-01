@@ -50,6 +50,9 @@ import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { AppService, AbstractService } from './store/app.service';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHttpInterceptor } from './TokenHttpInterceptor';
+import { AmadeusSettingsAddComponent } from './pages/dashboard/amadeus-settings-add/amadeus-settings-add.component';
+import { AmadeusSettingsViewComponent } from './pages/dashboard/amadeus-settings-view/amadeus-settings-view.component';
+import { AmadeusSettingsEditComponent } from './pages/dashboard/amadeus-settings-edit/amadeus-settings-edit.component';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { TokenHttpInterceptor } from './TokenHttpInterceptor';
     LoginComponent,
     DashboardComponent,
     LeftNavComponent,
-    HeaderComponent
+    HeaderComponent,
+    AmadeusSettingsAddComponent,
+    AmadeusSettingsViewComponent,
+    AmadeusSettingsEditComponent
   ],
   imports: [
     BrowserModule,

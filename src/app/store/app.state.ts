@@ -2,7 +2,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { AppStateModel } from './app.state.model';
 import { AppActions } from './app.actions';
 import { AppService } from './app.service';
-import { tap } from 'rxjs/operators';
+import { tap, retry } from 'rxjs/operators';
 import { Navigate } from '@ngxs/router-plugin';
 import { MatSnackBar } from '@angular/material';
 
@@ -31,6 +31,9 @@ export class AppState {
         const token = window.localStorage.getItem('token');
         return token;
     }
+
+    @Selector()
+    static amadeusSettings(state: AppStateModel): any { return state.amadeusSetting; }
 
     @Action(AppActions.LoadLocalToken)
     loadLocalToken(ctx: StateContext<AppStateModel>) {
@@ -63,6 +66,19 @@ export class AppState {
                 this.snackBar.open('Setting added Successfully', 'Success', {
                     duration: 2000,
                 });
+            })
+        );
+    }
+
+    @Action(AppActions.EditAmeduesSettings)
+    editAmeduesSetting(ctx: StateContext<AppStateModel>, action: AppActions.EditAmeduesSettings) {
+        const { payload } = action;
+        return this.service.editAmadeusSettings(payload).pipe(
+            tap(() => {
+                this.snackBar.open('Setting added Successfully', 'Success', {
+                    duration: 2000,
+                });
+
             })
         );
     }

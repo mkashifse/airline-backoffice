@@ -18,22 +18,12 @@ export class DashboardComponent implements OnInit {
     private store: Store,
   ) {
 
-    this.form = this.fb.group({
-      officeId: [],
-      userId: [],
-      password: [],
-      serviceEndpoint: [],
-      pseudoCityCoe: [],
-    });
-
   }
 
   ngOnInit() {
-    this.store.dispatch(new AppActions.GetAmeduesSettings());
   }
 
   submit() {
-    this.store.dispatch(new AppActions.PostAmeduesSettings(this.form.value));
   }
 
 }

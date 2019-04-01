@@ -12,8 +12,12 @@ export namespace AppActions {
     export class PostAmeduesSettings {
         static readonly type = '[App] Post amedues settings';
         constructor(public payload: any) { }
-
     }
+    export class EditAmeduesSettings {
+        static readonly type = '[App] Edit amedues settings';
+        constructor(public payload: any) { }
+    }
+
     export class GetAmeduesSettings {
         static readonly type = '[App] Get amedues settings';
     }
